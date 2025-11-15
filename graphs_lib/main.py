@@ -1,7 +1,16 @@
 import csv
-from AdjacencyMatrixGraph import AdjacencyMatrixGraph
 
-# LEITURA do interacoes.csv
+tipo = input("Escolha a implementação do grafo (matrix/list): ").strip().lower()
+
+if tipo.startswith("l"):
+    from AdjacencyListGraph import AdjacencyListGraph as Graph
+elif tipo.startswith("m"):
+    from AdjacencyMatrixGraph import AdjacencyMatrixGraph as Graph
+else:
+    print("Escolha inválida (use 'matrix' ou 'list')")
+    exit(1)
+
+# leitura do excel
 users = set()
 edges = []
 with open("interacoes.csv", encoding="utf-8") as f:
@@ -15,7 +24,7 @@ users = sorted(users)
 name2idx = {name: idx + 1 for idx, name in enumerate(users)}
 idx2name = {idx + 1: name for idx, name in enumerate(users)}
 
-g = AdjacencyMatrixGraph(len(users))
+g = Graph(len(users))
 
 for src, tgt, peso in edges:
     i = name2idx[src]
@@ -28,7 +37,13 @@ for src, tgt, peso in edges:
             g.add_edge(i, j, peso)
 
 # Testes
-g.print_graph()
+try:
+    g.print_graph()
+except AttributeError:
+    g.print()
+except Exception:
+    print("Método de impressão indisponível.")
+
 print("Total de vértices:", g.get_vertex_count())
 print("Total de arestas:", g.get_edge_count())
 print("Grafo vazio?", g.isEmptyGraph())
