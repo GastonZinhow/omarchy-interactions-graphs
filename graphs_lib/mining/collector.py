@@ -10,11 +10,9 @@ GITHUB_API = "https://api.github.com"
 # AUXILIARES
 # ============================================================
 
+
 def auth_headers(token: str):
-    return {
-        "Accept": "application/vnd.github+json",
-        "Authorization": f"Bearer {token}"
-    }
+    return {"Accept": "application/vnd.github+json", "Authorization": f"Bearer {token}"}
 
 
 def safe_get(url: str, headers: dict, params=None):
@@ -74,46 +72,35 @@ def paginate(url: str, headers: dict, params=None):
 # COLETA OTIMIZADA
 # ============================================================
 
+
 def collect_all(owner, repo, token):
 
     headers = auth_headers(token)
 
     print("=== COLETANDO ISSUES ===")
     issues = paginate(
-        f"{GITHUB_API}/repos/{owner}/{repo}/issues",
-        headers,
-        params={"state": "all"}
+        f"{GITHUB_API}/repos/{owner}/{repo}/issues", headers, params={"state": "all"}
     )
 
     # cache: evita milhares de GETs
     issue_author_map = {
-        str(issue["number"]): issue["user"]["login"]
-        for issue in issues
+        str(issue["number"]): issue["user"]["login"] for issue in issues
     }
 
     print("=== COLETANDO COMENTÁRIOS DE ISSUES ===")
     issue_comments = paginate(
-        f"{GITHUB_API}/repos/{owner}/{repo}/issues/comments",
-        headers
+        f"{GITHUB_API}/repos/{owner}/{repo}/issues/comments", headers
     )
 
     print("=== COLETANDO PULL REQUESTS ===")
     pulls = paginate(
-        f"{GITHUB_API}/repos/{owner}/{repo}/pulls",
-        headers,
-        params={"state": "all"}
+        f"{GITHUB_API}/repos/{owner}/{repo}/pulls", headers, params={"state": "all"}
     )
 
-    pr_author_map = {
-        str(pr["number"]): pr["user"]["login"]
-        for pr in pulls
-    }
+    pr_author_map = {str(pr["number"]): pr["user"]["login"] for pr in pulls}
 
     print("=== COLETANDO COMENTÁRIOS DE PULL REQUESTS ===")
-    pr_comments = paginate(
-        f"{GITHUB_API}/repos/{owner}/{repo}/pulls/comments",
-        headers
-    )
+    pr_comments = paginate(f"{GITHUB_API}/repos/{owner}/{repo}/pulls/comments", headers)
 
     return (
         issues,
@@ -122,13 +109,14 @@ def collect_all(owner, repo, token):
         pr_comments,
         headers,
         pr_author_map,
-        issue_author_map
+        issue_author_map,
     )
 
 
 # ============================================================
 # NORMALIZAÇÃO DAS INTERAÇÕES
 # ============================================================
+
 
 def extract_interactions(owner, repo, token):
     edges = []
@@ -140,7 +128,7 @@ def extract_interactions(owner, repo, token):
         pr_comments,
         headers,
         pr_author_map,
-        issue_author_map
+        issue_author_map,
     ) = collect_all(owner, repo, token)
 
     # ----------------------------------------------------------
@@ -221,6 +209,7 @@ def extract_interactions(owner, repo, token):
 # CSV
 # ============================================================
 
+
 def save_csv(edges, output_path):
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", newline="", encoding="utf-8") as f:
@@ -234,8 +223,10 @@ def save_csv(edges, output_path):
 # MAIN
 # ============================================================
 
+
 def main():
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--owner", required=True)
     parser.add_argument("--repo", required=True)
