@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2025-11-23">
+    <creator>NetworkX 3.5</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <nodes>
+      <node id="woopstar" label="woopstar" />
+      <node id="landsman" label="landsman" />
+      <node id="patroza" label="patroza" />
+      <node id="nixsh5" label="nixsh5" />
+      <node id="jmargeta" label="jmargeta" />
+      <node id="Zeus-Deus" label="Zeus-Deus" />
+      <node id="NicolasDorier" label="NicolasDorier" />
+      <node id="jorgemanrubia" label="jorgemanrubia" />
+      <node id="dhh" label="dhh" />
+      <node id="DanteIs897" label="DanteIs897" />
+      <node id="daviewales" label="daviewales" />
+      <node id="abenz1267" label="abenz1267" />
+      <node id="fcmiranda" label="fcmiranda" />
+      <node id="h4636oh" label="h4636oh" />
+      <node id="Kn0ax" label="Kn0ax" />
+      <node id="killeik" label="killeik" />
+      <node id="ryanrhughes" label="ryanrhughes" />
+      <node id="mghextreme" label="mghextreme" />
+      <node id="robertobarreda" label="robertobarreda" />
+      <node id="Michallote" label="Michallote" />
+      <node id="sgruendel" label="sgruendel" />
+      <node id="osmansemir" label="osmansemir" />
+      <node id="johntheyoung" label="johntheyoung" />
+      <node id="dharmavagabond" label="dharmavagabond" />
+      <node id="d-cas" label="d-cas" />
+      <node id="purrsec" label="purrsec" />
+      <node id="devzeth" label="devzeth" />
+      <node id="ElBrodino" label="ElBrodino" />
+      <node id="ctarx" label="ctarx" />
+      <node id="RushiChaganti" label="RushiChaganti" />
+      <node id="sepulworld" label="sepulworld" />
+      <node id="Luquatic" label="Luquatic" />
+      <node id="pawlobanano" label="pawlobanano" />
+      <node id="Mayank-8127" label="Mayank-8127" />
+      <node id="copilot-pull-request-reviewer[bot]" label="copilot-pull-request-reviewer[bot]" />
+      <node id="ZorudaRinku" label="ZorudaRinku" />
+      <node id="sspaeti" label="sspaeti" />
+      <node id="celsobenedetti" label="celsobenedetti" />
+      <node id="JoostdeK" label="JoostdeK" />
+      <node id="mlombardi96" label="mlombardi96" />
+      <node id="Because789" label="Because789" />
+      <node id="nytr0gen" label="nytr0gen" />
+      <node id="samanshirdel" label="samanshirdel" />
+      <node id="aericson" label="aericson" />
+      <node id="tamayotchi" label="tamayotchi" />
+      <node id="parnoldx" label="parnoldx" />
+      <node id="y0no" label="y0no" />
+      <node id="Acharab" label="Acharab" />
+      <node id="timmo001" label="timmo001" />
+      <node id="rajofearth" label="rajofearth" />
+      <node id="nicoestrada" label="nicoestrada" />
+      <node id="aki1ro" label="aki1ro" />
+      <node id="crestanigui" label="crestanigui" />
+      <node id="CaffeinatedTech" label="CaffeinatedTech" />
+      <node id="flaviolivolsi" label="flaviolivolsi" />
+      <node id="shawnanuptra" label="shawnanuptra" />
+      <node id="pkordel" label="pkordel" />
+      <node id="ericjim" label="ericjim" />
+      <node id="d0ctr" label="d0ctr" />
+      <node id="Furyfree" label="Furyfree" />
+      <node id="iamobservable" label="iamobservable" />
+      <node id="vyrx-dev" label="vyrx-dev" />
+      <node id="lewispb" label="lewispb" />
+      <node id="jardahrazdera" label="jardahrazdera" />
+      <node id="shawnyeager" label="shawnyeager" />
+      <node id="d3vw" label="d3vw" />
+      <node id="ludagoo" label="ludagoo" />
+      <node id="andresatierf" label="andresatierf" />
+      <node id="mrlarsendk" label="mrlarsendk" />
+      <node id="jeremy" label="jeremy" />
+      <node id="cyppe" label="cyppe" />
+      <node id="lukehsiao" label="lukehsiao" />
+      <node id="Cammisuli" label="Cammisuli" />
+      <node id="astralaster" label="astralaster" />
+      <node id="spdawson" label="spdawson" />
+      <node id="sudomateo" label="sudomateo" />
+      <node id="antoniodavid" label="antoniodavid" />
+      <node id="eifr" label="eifr" />
+      <node id="hegjon" label="hegjon" />
+      <node id="zachasme" label="zachasme" />
+      <node id="roberto-aguilar" label="roberto-aguilar" />
+      <node id="keyfer" label="keyfer" />
+      <node id="pipetogrep" label="pipetogrep" />
+      <node id="cluah" label="cluah" />
+      <node id="hjanuschka" label="hjanuschka" />
+      <node id="jankeesvw" label="jankeesvw" />
+      <node id="martinmose" label="martinmose" />
+      <node id="chrismazanec" label="chrismazanec" />
+      <node id="fazzledev" label="fazzledev" />
+      <node id="jheuing" label="jheuing" />
+      <node id="Rnedlose" label="Rnedlose" />
+      <node id="mroboff" label="mroboff" />
+      <node id="acrogenesis" label="acrogenesis" />
+      <node id="kodnin" label="kodnin" />
+      <node id="flozano" label="flozano" />
+      <node id="joelgaff" label="joelgaff" />
+      <node id="rmacklin" label="rmacklin" />
+      <node id="rez1coder" label="rez1coder" />
+      <node id="andrewjanssen" label="andrewjanssen" />
+      <node id="odd-git" label="odd-git" />
+      <node id="MulSori" label="MulSori" />
+      <node id="arcbjorn" label="arcbjorn" />
+      <node id="itsscb" label="itsscb" />
+      <node id="kromsam" label="kromsam" />
+      <node id="SamrudhNelli" label="SamrudhNelli" />
+      <node id="lucasrcezimbra" label="lucasrcezimbra" />
+      <node id="golgor" label="golgor" />
+      <node id="rafaelbernard" label="rafaelbernard" />
+      <node id="iccodes" label="iccodes" />
+      <node id="manofcolombia" label="manofcolombia" />
+      <node id="nkasco" label="nkasco" />
+      <node id="tom-jagus" label="tom-jagus" />
+      <node id="mattlanham" label="mattlanham" />
+      <node id="melpomene" label="melpomene" />
+      <node id="limxuan" label="limxuan" />
+      <node id="ludo237" label="ludo237" />
+      <node id="chriopter" label="chriopter" />
+      <node id="dreyacosta" label="dreyacosta" />
+      <node id="halilozercan" label="halilozercan" />
+      <node id="bastnic" label="bastnic" />
+      <node id="pilgren" label="pilgren" />
+      <node id="malparty" label="malparty" />
+      <node id="v-oleg" label="v-oleg" />
+      <node id="jamesmcm" label="jamesmcm" />
+      <node id="jroes" label="jroes" />
+      <node id="vlofgren" label="vlofgren" />
+      <node id="JamesShelley" label="JamesShelley" />
+      <node id="davidcbacker" label="davidcbacker" />
+      <node id="nilszeilon" label="nilszeilon" />
+      <node id="jammie-jelly" label="jammie-jelly" />
+      <node id="c4software" label="c4software" />
+      <node id="melonamin" label="melonamin" />
+      <node id="snek" label="snek" />
+      <node id="lestex" label="lestex" />
+      <node id="soubky0" label="soubky0" />
+      <node id="manuel1618" label="manuel1618" />
+      <node id="gjoedvad" label="gjoedvad" />
+      <node id="v3rtx" label="v3rtx" />
+      <node id="r3ap3r2004" label="r3ap3r2004" />
+      <node id="tibbe" label="tibbe" />
+      <node id="reshadman" label="reshadman" />
+      <node id="marcinczenko" label="marcinczenko" />
+      <node id="jzetterman" label="jzetterman" />
+      <node id="alexperreault" label="alexperreault" />
+      <node id="bjarneo" label="bjarneo" />
+      <node id="JJDizz1L" label="JJDizz1L" />
+      <node id="dariogriffo" label="dariogriffo" />
+      <node id="yawaramin" label="yawaramin" />
+      <node id="fhammerschmidt" label="fhammerschmidt" />
+      <node id="sixfourtwelve" label="sixfourtwelve" />
+      <node id="alansikora" label="alansikora" />
+      <node id="sailoz" label="sailoz" />
+      <node id="LeonardoTrapani" label="LeonardoTrapani" />
+      <node id="PDXPuma" label="PDXPuma" />
+      <node id="CWood-sdf" label="CWood-sdf" />
+      <node id="diogonapoles" label="diogonapoles" />
+      <node id="guilhermetk" label="guilhermetk" />
+      <node id="precision" label="precision" />
+      <node id="wltechblog" label="wltechblog" />
+      <node id="gthelding" label="gthelding" />
+      <node id="JaxonWright" label="JaxonWright" />
+      <node id="tahayvr" label="tahayvr" />
+      <node id="douglascamata" label="douglascamata" />
+      <node id="Serendeep" label="Serendeep" />
+      <node id="SYKwong" label="SYKwong" />
+      <node id="tjdevries" label="tjdevries" />
+      <node id="ryanyogan" label="ryanyogan" />
+      <node id="andnig" label="andnig" />
+      <node id="da-maltsev" label="da-maltsev" />
+      <node id="jonashan" label="jonashan" />
+      <node id="aifrim" label="aifrim" />
+      <node id="cannikin" label="cannikin" />
+      <node id="npenza" label="npenza" />
+      <node id="anoldguy" label="anoldguy" />
+      <node id="joonjeong" label="joonjeong" />
+      <node id="henrysipp" label="henrysipp" />
+      <node id="rhodes-b" label="rhodes-b" />
+      <node id="mah3uz" label="mah3uz" />
+    </nodes>
+    <edges>
+      <edge source="woopstar" target="landsman" id="0" weight="2" />
+      <edge source="woopstar" target="tamayotchi" id="1" weight="4" />
+      <edge source="woopstar" target="Acharab" id="2" weight="3" />
+      <edge source="woopstar" target="vyrx-dev" id="3" weight="1" />
+      <edge source="woopstar" target="sgruendel" id="4" weight="2" />
+      <edge source="woopstar" target="dhh" id="5" weight="2" />
+      <edge source="woopstar" target="abenz1267" id="6" weight="2" />
+      <edge source="woopstar" target="marcinczenko" id="7" weight="1" />
+      <edge source="landsman" target="CaffeinatedTech" id="8" weight="1" />
+      <edge source="patroza" target="nixsh5" id="9" weight="1" />
+      <edge source="jmargeta" target="Zeus-Deus" id="10" weight="1" />
+      <edge source="NicolasDorier" target="landsman" id="11" weight="2" />
+      <edge source="jorgemanrubia" target="landsman" id="12" weight="1" />
+      <edge source="jorgemanrubia" target="NicolasDorier" id="13" weight="1" />
+      <edge source="dhh" target="DanteIs897" id="14" weight="1" />
+      <edge source="dhh" target="h4636oh" id="15" weight="2" />
+      <edge source="dhh" target="johntheyoung" id="16" weight="1" />
+      <edge source="dhh" target="ctarx" id="17" weight="1" />
+      <edge source="dhh" target="sepulworld" id="18" weight="1" />
+      <edge source="dhh" target="ryanrhughes" id="19" weight="29" />
+      <edge source="dhh" target="parnoldx" id="20" weight="1" />
+      <edge source="dhh" target="nicoestrada" id="21" weight="1" />
+      <edge source="dhh" target="flaviolivolsi" id="22" weight="1" />
+      <edge source="dhh" target="ericjim" id="23" weight="4" />
+      <edge source="dhh" target="eifr" id="24" weight="2" />
+      <edge source="dhh" target="zachasme" id="25" weight="2" />
+      <edge source="dhh" target="pipetogrep" id="26" weight="3" />
+      <edge source="dhh" target="cluah" id="27" weight="1" />
+      <edge source="dhh" target="mroboff" id="28" weight="1" />
+      <edge source="dhh" target="sspaeti" id="29" weight="2" />
+      <edge source="dhh" target="kodnin" id="30" weight="1" />
+      <edge source="dhh" target="jardahrazdera" id="31" weight="7" />
+      <edge source="dhh" target="sgruendel" id="32" weight="2" />
+      <edge source="dhh" target="iccodes" id="33" weight="5" />
+      <edge source="dhh" target="abenz1267" id="34" weight="1" />
+      <edge source="dhh" target="chriopter" id="35" weight="3" />
+      <edge source="dhh" target="nilszeilon" id="36" weight="9" />
+      <edge source="dhh" target="melonamin" id="37" weight="1" />
+      <edge source="dhh" target="alansikora" id="38" weight="3" />
+      <edge source="dhh" target="JaxonWright" id="39" weight="4" />
+      <edge source="dhh" target="tahayvr" id="40" weight="2" />
+      <edge source="dhh" target="ryanyogan" id="41" weight="2" />
+      <edge source="dhh" target="cannikin" id="42" weight="1" />
+      <edge source="dhh" target="guilhermetk" id="43" weight="1" />
+      <edge source="dhh" target="npenza" id="44" weight="6" />
+      <edge source="dhh" target="anoldguy" id="45" weight="1" />
+      <edge source="dhh" target="henrysipp" id="46" weight="1" />
+      <edge source="dhh" target="Kn0ax" id="47" weight="6" />
+      <edge source="daviewales" target="dhh" id="48" weight="2" />
+      <edge source="abenz1267" target="fcmiranda" id="49" weight="1" />
+      <edge source="abenz1267" target="RushiChaganti" id="50" weight="11" />
+      <edge source="abenz1267" target="vyrx-dev" id="51" weight="2" />
+      <edge source="abenz1267" target="eifr" id="52" weight="1" />
+      <edge source="abenz1267" target="andnig" id="53" weight="2" />
+      <edge source="abenz1267" target="ryanrhughes" id="54" weight="1" />
+      <edge source="Kn0ax" target="killeik" id="55" weight="3" />
+      <edge source="killeik" target="martinmose" id="56" weight="1" />
+      <edge source="ryanrhughes" target="killeik" id="57" weight="1" />
+      <edge source="ryanrhughes" target="dhh" id="58" weight="3" />
+      <edge source="ryanrhughes" target="iamobservable" id="59" weight="2" />
+      <edge source="ryanrhughes" target="shawnyeager" id="60" weight="1" />
+      <edge source="ryanrhughes" target="ludagoo" id="61" weight="1" />
+      <edge source="ryanrhughes" target="mrlarsendk" id="62" weight="1" />
+      <edge source="ryanrhughes" target="joelgaff" id="63" weight="1" />
+      <edge source="ryanrhughes" target="manofcolombia" id="64" weight="1" />
+      <edge source="ryanrhughes" target="manuel1618" id="65" weight="1" />
+      <edge source="ryanrhughes" target="jzetterman" id="66" weight="2" />
+      <edge source="ryanrhughes" target="dariogriffo" id="67" weight="1" />
+      <edge source="ryanrhughes" target="sailoz" id="68" weight="1" />
+      <edge source="ryanrhughes" target="LeonardoTrapani" id="69" weight="2" />
+      <edge source="ryanrhughes" target="precision" id="70" weight="1" />
+      <edge source="ryanrhughes" target="tahayvr" id="71" weight="1" />
+      <edge source="ryanrhughes" target="anoldguy" id="72" weight="1" />
+      <edge source="mghextreme" target="robertobarreda" id="73" weight="1" />
+      <edge source="mghextreme" target="purrsec" id="74" weight="1" />
+      <edge source="mghextreme" target="dhh" id="75" weight="1" />
+      <edge source="mghextreme" target="Luquatic" id="76" weight="1" />
+      <edge source="mghextreme" target="MulSori" id="77" weight="2" />
+      <edge source="Michallote" target="robertobarreda" id="78" weight="2" />
+      <edge source="sgruendel" target="osmansemir" id="79" weight="1" />
+      <edge source="sgruendel" target="vyrx-dev" id="80" weight="1" />
+      <edge source="sgruendel" target="r3ap3r2004" id="81" weight="1" />
+      <edge source="dharmavagabond" target="d-cas" id="82" weight="1" />
+      <edge source="dharmavagabond" target="dhh" id="83" weight="1" />
+      <edge source="devzeth" target="ElBrodino" id="84" weight="1" />
+      <edge source="pawlobanano" target="Mayank-8127" id="85" weight="2" />
+      <edge source="copilot-pull-request-reviewer[bot]" target="ZorudaRinku" id="86" weight="1" />
+      <edge source="copilot-pull-request-reviewer[bot]" target="acrogenesis" id="87" weight="2" />
+      <edge source="copilot-pull-request-reviewer[bot]" target="joonjeong" id="88" weight="1" />
+      <edge source="sspaeti" target="ryanrhughes" id="89" weight="1" />
+      <edge source="celsobenedetti" target="RushiChaganti" id="90" weight="4" />
+      <edge source="JoostdeK" target="dhh" id="91" weight="1" />
+      <edge source="mlombardi96" target="dhh" id="92" weight="1" />
+      <edge source="Because789" target="dhh" id="93" weight="4" />
+      <edge source="nytr0gen" target="dhh" id="94" weight="1" />
+      <edge source="samanshirdel" target="dhh" id="95" weight="2" />
+      <edge source="aericson" target="dhh" id="96" weight="1" />
+      <edge source="y0no" target="ryanrhughes" id="97" weight="2" />
+      <edge source="timmo001" target="rajofearth" id="98" weight="1" />
+      <edge source="aki1ro" target="crestanigui" id="99" weight="1" />
+      <edge source="shawnanuptra" target="ryanrhughes" id="100" weight="1" />
+      <edge source="pkordel" target="ryanrhughes" id="101" weight="1" />
+      <edge source="d0ctr" target="Furyfree" id="102" weight="1" />
+      <edge source="lewispb" target="jardahrazdera" id="103" weight="1" />
+      <edge source="jardahrazdera" target="nkasco" id="104" weight="2" />
+      <edge source="d3vw" target="shawnyeager" id="105" weight="1" />
+      <edge source="andresatierf" target="robertobarreda" id="106" weight="6" />
+      <edge source="andresatierf" target="mroboff" id="107" weight="1" />
+      <edge source="jeremy" target="cyppe" id="108" weight="1" />
+      <edge source="lukehsiao" target="Cammisuli" id="109" weight="3" />
+      <edge source="astralaster" target="Cammisuli" id="110" weight="2" />
+      <edge source="spdawson" target="dhh" id="111" weight="3" />
+      <edge source="spdawson" target="sgruendel" id="112" weight="1" />
+      <edge source="sudomateo" target="sgruendel" id="113" weight="1" />
+      <edge source="antoniodavid" target="eifr" id="114" weight="1" />
+      <edge source="hegjon" target="eifr" id="115" weight="2" />
+      <edge source="roberto-aguilar" target="keyfer" id="116" weight="1" />
+      <edge source="roberto-aguilar" target="martinmose" id="117" weight="2" />
+      <edge source="hjanuschka" target="jankeesvw" id="118" weight="2" />
+      <edge source="chrismazanec" target="killeik" id="119" weight="1" />
+      <edge source="fazzledev" target="jheuing" id="120" weight="1" />
+      <edge source="Rnedlose" target="jheuing" id="121" weight="1" />
+      <edge source="flozano" target="joelgaff" id="122" weight="2" />
+      <edge source="rmacklin" target="jardahrazdera" id="123" weight="1" />
+      <edge source="rmacklin" target="soubky0" id="124" weight="2" />
+      <edge source="rmacklin" target="dhh" id="125" weight="3" />
+      <edge source="rmacklin" target="ryanrhughes" id="126" weight="1" />
+      <edge source="rez1coder" target="andrewjanssen" id="127" weight="1" />
+      <edge source="rez1coder" target="MulSori" id="128" weight="1" />
+      <edge source="odd-git" target="MulSori" id="129" weight="1" />
+      <edge source="arcbjorn" target="itsscb" id="130" weight="2" />
+      <edge source="arcbjorn" target="jzetterman" id="131" weight="1" />
+      <edge source="kromsam" target="SamrudhNelli" id="132" weight="2" />
+      <edge source="lucasrcezimbra" target="golgor" id="133" weight="1" />
+      <edge source="rafaelbernard" target="arcbjorn" id="134" weight="2" />
+      <edge source="rafaelbernard" target="reshadman" id="135" weight="1" />
+      <edge source="rafaelbernard" target="jzetterman" id="136" weight="1" />
+      <edge source="rafaelbernard" target="dhh" id="137" weight="1" />
+      <edge source="tom-jagus" target="mattlanham" id="138" weight="2" />
+      <edge source="melpomene" target="abenz1267" id="139" weight="1" />
+      <edge source="limxuan" target="abenz1267" id="140" weight="1" />
+      <edge source="ludo237" target="chriopter" id="141" weight="1" />
+      <edge source="ludo237" target="CWood-sdf" id="142" weight="1" />
+      <edge source="ludo237" target="ryanrhughes" id="143" weight="2" />
+      <edge source="ludo237" target="tahayvr" id="144" weight="2" />
+      <edge source="ludo237" target="Serendeep" id="145" weight="2" />
+      <edge source="ludo237" target="SYKwong" id="146" weight="1" />
+      <edge source="dreyacosta" target="halilozercan" id="147" weight="1" />
+      <edge source="bastnic" target="pilgren" id="148" weight="1" />
+      <edge source="malparty" target="v-oleg" id="149" weight="1" />
+      <edge source="malparty" target="ryanyogan" id="150" weight="1" />
+      <edge source="jamesmcm" target="jroes" id="151" weight="1" />
+      <edge source="vlofgren" target="JamesShelley" id="152" weight="2" />
+      <edge source="davidcbacker" target="jamesmcm" id="153" weight="2" />
+      <edge source="jammie-jelly" target="c4software" id="154" weight="1" />
+      <edge source="c4software" target="dhh" id="155" weight="2" />
+      <edge source="snek" target="lestex" id="156" weight="1" />
+      <edge source="manuel1618" target="ryanrhughes" id="157" weight="1" />
+      <edge source="gjoedvad" target="v3rtx" id="158" weight="1" />
+      <edge source="tibbe" target="dhh" id="159" weight="2" />
+      <edge source="alexperreault" target="bjarneo" id="160" weight="1" />
+      <edge source="JJDizz1L" target="ryanrhughes" id="161" weight="1" />
+      <edge source="yawaramin" target="fhammerschmidt" id="162" weight="1" />
+      <edge source="sixfourtwelve" target="fhammerschmidt" id="163" weight="1" />
+      <edge source="sailoz" target="dhh" id="164" weight="1" />
+      <edge source="PDXPuma" target="dhh" id="165" weight="1" />
+      <edge source="diogonapoles" target="guilhermetk" id="166" weight="1" />
+      <edge source="wltechblog" target="precision" id="167" weight="1" />
+      <edge source="gthelding" target="precision" id="168" weight="1" />
+      <edge source="douglascamata" target="tahayvr" id="169" weight="1" />
+      <edge source="douglascamata" target="ryanyogan" id="170" weight="6" />
+      <edge source="tjdevries" target="tahayvr" id="171" weight="2" />
+      <edge source="ryanyogan" target="dhh" id="172" weight="2" />
+      <edge source="da-maltsev" target="jonashan" id="173" weight="1" />
+      <edge source="aifrim" target="ryanrhughes" id="174" weight="1" />
+      <edge source="rhodes-b" target="dhh" id="175" weight="2" />
+      <edge source="mah3uz" target="dhh" id="176" weight="1" />
+    </edges>
+  </graph>
+</gexf>

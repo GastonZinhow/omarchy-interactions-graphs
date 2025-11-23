@@ -12,12 +12,14 @@ Sistema desenvolvido para analisar estruturas de colaboração e interação ent
 
 ### Como executar o Projeto
 
-```bash
+````bash
 # 1. Instalar dependências
 pip install -r requirements.txt
 
 # 2. Executar análise completa
-python -m graphs_lib analyze --interactions interacoes.csv
+python -m graphs_lib analyze --interactions collected-data/interacoes_comentarios.csv
+python -m graphs_lib analyze --interactions collected-data/interacoes_fechamentos.csv
+python -m graphs_lib analyze --interactions collected-data/interacoes_reviews_merges.csv
 
 📂 Arquivos Gerados
 Após a execução, você encontrará:
@@ -28,6 +30,44 @@ output/grafo_normal.gexf	Arquivo para importar no Gephi
 output/grafo_interacoes.gexf	Grafo direcionado para Gephi
 output/centralidades_normal.csv	Métricas de todos os colaboradores
 output/centralidades_interacoes.csv	Análise detalhada de interações
+
+---
+
+### Coleta de Dados (Minerador GitHub)
+
+O coletor em `graphs_lib/mining/collector.py` gera três conjuntos separados (comentários, fechamentos de issues e reviews/merges) em CSV.
+
+Pré-requisitos:
+- **Personal Access Token** do GitHub (escopo público básico para leitura de issues e PRs).
+- Acesso de rede para chamadas à API.
+
+#### Executar coleta
+
+```powershell
+python -m graphs_lib.mining.collector --owner ORGANIZACAO --repo REPOSITORIO --token SEU_TOKEN --output collected-data
+````
+
+Use `--output` para definir a pasta de saída. Serão gerados na pasta escolhida:
+
+- `interacoes_comentarios.csv`
+- `interacoes_fechamentos.csv`
+- `interacoes_reviews_merges.csv`
+
+Categorias:
+
+- `comentarios`: comentários em issues ou pull requests
+- `fechamentos`: fechamento de issues por usuário diferente do autor
+- `reviews_merges`: reviews e merges de pull requests
+
+#### Executar análise em um dos conjuntos
+
+Escolha um dos CSVs gerados e rode:
+
+```powershell
+python -m graphs_lib analyze --interactions collected-data/interacoes_comentarios.csv
+```
+
+Repita para os demais CSVs se quiser análises independentes por tipo. Cada execução da análise gera os arquivos de métricas e os grafos `.gexf` correspondentes ao conjunto fornecido.
 
 ---
 
@@ -42,48 +82,54 @@ output/centralidades_interacoes.csv	Análise detalhada de interações
 
 📁 Estrutura do Projeto
 graphs_lib/
-├── graphs/                          
-│   ├── __init__.py                  
-│   ├── abstract_graph.py                      
-│   ├── adjacency_list_graph.py           
-│   ├── adjacency_matrix_graph.py          
-│   └── exceptions.py                
-│
-├── mining/                       
+├── graphs/
 │   ├── __init__.py
-│   └── collector.py         
+│   ├── abstract_graph.py
+│   ├── adjacency_list_graph.py
+│   ├── adjacency_matrix_graph.py
+│   └── exceptions.py
 │
-├── analysis/                       
+├── mining/
 │   ├── __init__.py
-│   └── network_analysis.py      
+│   └── collector.py
 │
-├── utils/                        
+├── analysis/
 │   ├── __init__.py
-│   ├── logger.py                  
-│   └── json_utils.py                      
+│   └── network_analysis.py
 │
-├── tests/                          
+├── utils/
 │   ├── __init__.py
-│   ├── test_adjacency_list.py       
-│   └── test_adjacency_matrix.py      
+│   ├── logger.py
+│   └── json_utils.py
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_adjacency_list.py
+│   └── test_adjacency_matrix.py
 │
 │   requirements.txt
 │   main.py
 │   .env.example
 │   __main__.py
-│   __init__.py   
-│  
-output/                        
+│   __init__.py
+│
+output/
 │   ├── analise_grafo_normal.png
 │   ├── analise_grafo_interacoes.png
 │   ├── grafo_normal.gexf
 │   ├── grafo_interacoes.gexf
 │   ├── centralidades_normal.csv
 │   └── centralidades_interacoes.csv
+|
+collected-data/
+│   ├── interacoes_comentarios.csv
+│   ├── interacoes_fechamentos.csv
+│   └── interacoes_reviews_merges.csv
 │
-logs/                           
+logs/
 │   └── graphs_lib.log
 │
-├── interacoes.csv                                                    
-├── .gitignore                      
-└── README.md                        
+├── interacoes.csv
+├── .gitignore
+└── README.md
+```

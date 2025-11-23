@@ -206,6 +206,38 @@ def extract_interactions(owner, repo, token):
 
 
 # ============================================================
+# CATEGORIZAÇÃO
+# ============================================================
+
+
+def categorize_edges(edges):
+    """Retorna dicionário com listas de arestas separadas por tipo agregado.
+
+    categorias:
+      - comentarios: tipo_interacao == "comentario"
+      - fechamentos: tipo_interacao == "fechamento_issue"
+      - reviews_merges: tipo_interacao in {"review", "merge"}
+    """
+    comentarios = []
+    fechamentos = []
+    reviews_merges = []
+    for src, tgt, tipo, peso in edges:
+        if tipo == "comentario":
+            comentarios.append((src, tgt, tipo, peso))
+        elif tipo == "fechamento_issue":
+            fechamentos.append((src, tgt, tipo, peso))
+        elif tipo in ("review", "merge"):
+            reviews_merges.append((src, tgt, tipo, peso))
+    return {
+        "comentarios": comentarios,
+        "fechamentos": fechamentos,
+        "reviews_merges": reviews_merges,
+    }
+
+
+
+
+# ============================================================
 # CSV
 # ============================================================
 
@@ -219,6 +251,20 @@ def save_csv(edges, output_path):
     print(f"[CSV] Arquivo salvo em: {output_path}")
 
 
+def save_csv_split(categorias_dict, output_dir):
+    """Exporta três CSVs separados com nomes padronizados para o diretório fornecido."""
+    base = Path(output_dir)
+    base.mkdir(parents=True, exist_ok=True)
+    nomes = {
+        "comentarios": "interacoes_comentarios.csv",
+        "fechamentos": "interacoes_fechamentos.csv",
+        "reviews_merges": "interacoes_reviews_merges.csv",
+    }
+    for cat, edges in categorias_dict.items():
+        out_path = base / nomes[cat]
+        save_csv(edges, out_path)
+
+
 # ============================================================
 # MAIN
 # ============================================================
@@ -227,15 +273,24 @@ def save_csv(edges, output_path):
 def main():
     import argparse
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--owner", required=True)
-    parser.add_argument("--repo", required=True)
-    parser.add_argument("--token", required=True)
-    parser.add_argument("--out", default="interacoes.csv")
+    parser = argparse.ArgumentParser(description="Coletor de interações do GitHub (gera 3 CSVs categorizados)")
+    parser.add_argument("--owner", required=True, help="Organização ou usuário dono do repositório")
+    parser.add_argument("--repo", required=True, help="Nome do repositório")
+    parser.add_argument("--token", required=True, help="Personal Access Token do GitHub")
+    parser.add_argument(
+        "--output",
+        default="collected-data",
+        help="Diretório de saída dos CSVs categorizados (padrão: collected-data)",
+    )
     args = parser.parse_args()
 
+    final_dir = Path(args.output)
+
     edges = extract_interactions(args.owner, args.repo, args.token)
-    save_csv(edges, args.out)
+    categorias = categorize_edges(edges)
+    print(f"[INFO] Exportando CSVs separados (comentarios, fechamentos, reviews_merges) para '{final_dir}'...")
+    save_csv_split(categorias, final_dir)
+    print("[OK] Coleta concluída.")
 
 
 if __name__ == "__main__":

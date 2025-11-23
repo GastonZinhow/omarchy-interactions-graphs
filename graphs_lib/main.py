@@ -63,7 +63,18 @@ def comando_analyze(args):
     print("\n⏳ Inicializando analisador...\n")
 
     # Criar pasta output com segurança
-    output_dir = garantir_pasta_output()
+    base_output = garantir_pasta_output()
+
+    # Criar subpasta específica para o CSV
+    nome_csv = Path(args.interactions).stem
+    output_dir = base_output / nome_csv
+
+    try:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        logger.info(f"📁 Pasta criada: {output_dir}")
+    except Exception as e:
+        logger.error(f"❌ Erro ao criar subpasta '{output_dir}': {e}")
+        raise
 
     # Carregar interações
     interacoes = carregar_interacoes_csv(args.interactions)
