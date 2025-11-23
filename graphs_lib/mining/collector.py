@@ -263,6 +263,12 @@ def save_csv_split(categorias_dict, output_dir):
     for cat, edges in categorias_dict.items():
         out_path = base / nomes[cat]
         save_csv(edges, out_path)
+    # Também exporta um CSV combinado com todas as interações
+    combined = []
+    for lst in categorias_dict.values():
+        combined.extend(lst)
+    combined_path = base / "interacoes_todas.csv"
+    save_csv(combined, combined_path)
 
 
 # ============================================================

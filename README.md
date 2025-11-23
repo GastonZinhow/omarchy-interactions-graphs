@@ -17,26 +17,44 @@ Sistema desenvolvido para analisar estruturas de colaboração e interação ent
 pip install -r requirements.txt
 
 # 2. Executar análise completa
-python -m graphs_lib analyze --interactions interacoes.csv
+python -m graphs_lib analyze --interactions collected-data/interacoes_todas.csv
+
+# 3. Executar análise para cada tipo de interacao
 python -m graphs_lib analyze --interactions collected-data/interacoes_comentarios.csv
 python -m graphs_lib analyze --interactions collected-data/interacoes_fechamentos.csv
 python -m graphs_lib analyze --interactions collected-data/interacoes_reviews_merges.csv
 
 📂 Arquivos Gerados
-Após a execução, você encontrará:
+Após a execução (exemplo para saída por tipo de interação), você encontrará uma pasta `output/` contendo subpastas por conjunto de interações:
 
-output/analise_grafo_normal.png	Painel com 6 gráficos de métricas
-output/analise_grafo_interacoes.png	Análise do grafo direcionado
-output/grafo_normal.gexf	Arquivo para importar no Gephi
-output/grafo_interacoes.gexf	Grafo direcionado para Gephi
-output/centralidades_normal.csv	Métricas de todos os colaboradores
-output/centralidades_interacoes.csv	Análise detalhada de interações
+output/
+├── interacoes_comentarios/
+│   ├── centralidades_interacoes.csv
+│   ├── centralidades_normal.csv
+│   ├── comunidades.csv
+│   ├── grafo_interacoes.gexf
+│   ├── grafo_normal.gexf
+│   └── metricas_estruturais.csv
+├── interacoes_fechamentos/
+│   ├── centralidades_interacoes.csv
+│   ├── centralidades_normal.csv
+│   ├── comunidades.csv
+│   ├── grafo_interacoes.gexf
+│   ├── grafo_normal.gexf
+│   └── metricas_estruturais.csv
+└── interacoes_reviews_merges/
+	├── centralidades_interacoes.csv
+	├── centralidades_normal.csv
+	├── comunidades.csv
+	├── grafo_interacoes.gexf
+	├── grafo_normal.gexf
+	└── metricas_estruturais.csv
 
 ---
 
 ### Coleta de Dados (Minerador GitHub)
 
-O coletor em `graphs_lib/mining/collector.py` gera três conjuntos separados (comentários, fechamentos de issues e reviews/merges) em CSV.
+O coletor em `graphs_lib/mining/collector.py` gera três conjuntos separados (comentários, fechamentos de issues e reviews/merges) em CSV e também um CSV combinado com todas as interações (`interacoes_todas.csv`).
 
 Pré-requisitos:
 - **Personal Access Token** do GitHub (escopo público básico para leitura de issues e PRs).
@@ -53,6 +71,7 @@ Use `--output` para definir a pasta de saída. Serão gerados na pasta escolhida
 - `interacoes_comentarios.csv`
 - `interacoes_fechamentos.csv`
 - `interacoes_reviews_merges.csv`
+- `interacoes_todas.csv` (combina as três categorias)
 
 Categorias:
 
@@ -125,7 +144,8 @@ output/
 collected-data/
 │   ├── interacoes_comentarios.csv
 │   ├── interacoes_fechamentos.csv
-│   └── interacoes_reviews_merges.csv
+│   ├── interacoes_reviews_merges.csv
+│   └── interacoes_todas.csv
 │
 logs/
 │   └── graphs_lib.log

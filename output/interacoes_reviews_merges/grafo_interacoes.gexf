@@ -14,7 +14,7 @@
       <node id="NicolasDorier" label="NicolasDorier" />
       <node id="jorgemanrubia" label="jorgemanrubia" />
       <node id="dhh" label="dhh" />
-      <node id="DanteIs897" label="DanteIs897" />
+      <node id="DankyoDev" label="DankyoDev" />
       <node id="daviewales" label="daviewales" />
       <node id="abenz1267" label="abenz1267" />
       <node id="fcmiranda" label="fcmiranda" />
@@ -199,7 +199,7 @@
       <edge source="NicolasDorier" target="landsman" id="11" weight="2" />
       <edge source="jorgemanrubia" target="landsman" id="12" weight="1" />
       <edge source="jorgemanrubia" target="NicolasDorier" id="13" weight="1" />
-      <edge source="dhh" target="DanteIs897" id="14" weight="1" />
+      <edge source="dhh" target="DankyoDev" id="14" weight="1" />
       <edge source="dhh" target="h4636oh" id="15" weight="2" />
       <edge source="dhh" target="johntheyoung" id="16" weight="1" />
       <edge source="dhh" target="ctarx" id="17" weight="1" />
