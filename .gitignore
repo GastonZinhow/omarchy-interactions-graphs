@@ -3,11 +3,11 @@
 .env.local
 
 # Saídas (MANTER os resultados gerados)
-# output/*.png
-# output/*.gexf
-# output/*.csv
-# output/*.txt
-# !output/.gitkeep
+output/*.png
+output/*.gexf
+output/*.csv
+output/*.txt
+!output/.gitkeep
 
 # Logs
 logs/
