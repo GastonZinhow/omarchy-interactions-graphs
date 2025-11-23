@@ -145,6 +145,103 @@ class NetworkAnalyzer:
         return df
 
     # -------------------------
+    # BRIDGING TIES (TOP N BETWEENNESS)
+    # -------------------------
+    def get_top_bridging_ties(self, df_und: pd.DataFrame, metrics: Dict[str, Any], n=5) -> pd.DataFrame:
+        # Pegar top N por betweenness
+        top = df_und.nlargest(n, 'betweenness')[
+            ['colaborador', 'betweenness', 'degree', 'pagerank', 'grupo_comunidade']
+        ].copy()
+        
+        # Mapear comunidades por nó
+        comu_por_no = metrics.get('comu_por_no', {})
+        
+        # Contar quantas comunidades diferentes cada usuário conecta
+        comunidades_por_usuario = {}
+        
+        for idx, row in top.iterrows():
+            user = row['colaborador']
+            comunidades_vizinhas = set()
+            
+            # Verificar se o usuário existe no grafo
+            if self.G_und.has_node(user):
+                # Para cada vizinho, pegar sua comunidade
+                for neighbor in self.G_und.neighbors(user):
+                    if neighbor in comu_por_no:
+                        comu_vizinho = comu_por_no[neighbor]
+                        if comu_vizinho is not None:
+                            comunidades_vizinhas.add(comu_vizinho)
+                
+                # Adicionar a própria comunidade do usuário
+                if user in comu_por_no and comu_por_no[user] is not None:
+                    comunidades_vizinhas.add(comu_por_no[user])
+            
+            comunidades_por_usuario[user] = len(comunidades_vizinhas)
+        
+        # Adicionar coluna de comunidades conectadas
+        top['comunidades_conectadas'] = top['colaborador'].map(comunidades_por_usuario)
+        
+        # Ordenar por betweenness decrescente
+        top = top.sort_values('betweenness', ascending=False)
+        
+        logger.info(f"Top {n} bridging ties identificados:")
+        for idx, row in top.iterrows():
+            logger.info(
+                f"  {row['colaborador']}: betweenness={row['betweenness']:.4f}, "
+                f"conecta {row['comunidades_conectadas']} comunidades"
+            )
+        
+        return top
+    
+    def export_bridging_ties_subgraph(self, bridging_ties: pd.DataFrame, metrics: Dict[str, Any]) -> None:
+        bridges_list = bridging_ties['colaborador'].tolist()
+
+        # Criar subgrafo com bridges + vizinhos de 1° grau
+        nodes_to_include = set(bridges_list)
+
+        # Adicionar todos os vizinhos diretos dos bridges
+        for bridge in bridges_list:
+            if self.G_und.has_node(bridge):
+                neighbors = list(self.G_und.neighbors(bridge))
+                nodes_to_include.update(neighbors)
+
+        # Extrair subgrafo
+        subgraph = self.G_und.subgraph(nodes_to_include).copy()
+
+        logger.info(f"Subgrafo de bridging ties: {subgraph.number_of_nodes()} nós, {subgraph.number_of_edges()} arestas")
+
+        # Adicionar atributos aos nós para visualização no Gephi
+        comu_por_no = metrics.get('comu_por_no', {})
+
+        for node in subgraph.nodes():
+            # Marcar se é um bridge
+            is_bridge = node in bridges_list
+            subgraph.nodes[node]['is_bridge'] = 'Sim' if is_bridge else 'Não'
+            
+            # Adicionar comunidade
+            subgraph.nodes[node]['comunidade'] = comu_por_no.get(node, 0)
+            
+            # Tamanho sugerido (bridges maiores)
+            if is_bridge:
+                subgraph.nodes[node]['size'] = 150.0
+            else:
+                subgraph.nodes[node]['size'] = 20.0
+            
+            # Label
+            subgraph.nodes[node]['label'] = str(node)
+
+        # Exportar
+        path_bridges_gexf = self.output_dir / "grafo_bridging_ties.gexf"
+        try:
+            nx.write_gexf(subgraph, str(path_bridges_gexf))
+            logger.info(f"💾 Subgrafo de bridging ties exportado: {path_bridges_gexf}")
+            print(f"✓ Subgrafo exportado: {path_bridges_gexf}")
+            print(f"  → {subgraph.number_of_nodes()} nós (5 bridges + {subgraph.number_of_nodes()-5} vizinhos)")
+            print(f"  → {subgraph.number_of_edges()} arestas")
+        except Exception as e:
+            logger.error(f"Erro exportando grafo_bridging_ties.gexf: {e}")
+
+    # -------------------------
     # MÉTRICAS DE ESTRUTURA/COESÃO/COMUNIDADE
     # -------------------------
     def _calc_network_metrics(self, G: nx.Graph) -> Dict[str, Any]:
@@ -388,6 +485,16 @@ class NetworkAnalyzer:
         self._export_network_metrics(metrics)
         df_und = self._merge_structural_metrics_to_df(df_und, metrics)
 
+        # Identificar e exportar bridging ties (top 5 betweenness)
+        bridging_ties = self.get_top_bridging_ties(df_und, metrics, n=5)
+        path_bridging = self.output_dir / "bridging_ties.csv"
+        try:
+            bridging_ties.to_csv(path_bridging, index=False, encoding="utf-8")
+            logger.info(f"💾 Exportado: {path_bridging}")
+        except Exception as e:
+            logger.error(f"Erro salvando bridging_ties.csv: {e}")
+        self.export_bridging_ties_subgraph(bridging_ties, metrics)
+
         # exportar GEXF
         self._export_gexf()
 
@@ -413,12 +520,14 @@ class NetworkAnalyzer:
             "componentes_fracos": nx.number_weakly_connected_components(self.G_dir),
             "arquivo_grafo_normal": str(self.output_dir / "grafo_normal.gexf"),
             "arquivo_grafo_interacoes": str(self.output_dir / "grafo_interacoes.gexf"),
+            "arquivo_grafo_bridging_ties": str(self.output_dir / "grafo_bridging_ties.gexf"), 
             "arquivo_analise_grafo_normal": str(self.output_dir / "analise_grafo_normal.png"),
             "arquivo_analise_grafo_interacoes": str(self.output_dir / "analise_grafo_interacoes.png"),
             "arquivo_centralidades_normal": str(self.output_dir / "centralidades_normal.csv"),
             "arquivo_centralidades_interacoes": str(self.output_dir / "centralidades_interacoes.csv"),
             "arquivo_metricas_estruturais": str(self.output_dir / "metricas_estruturais.csv"),
             "arquivo_comunidades": str(self.output_dir / "comunidades.csv"),
+            "arquivo_bridging_ties": str(path_bridging),
             "densidade": metrics["densidade"],
             "clustering_media": metrics["clustering_media"],
             "assortatividade": metrics["assortatividade"],

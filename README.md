@@ -17,6 +17,7 @@ Sistema desenvolvido para analisar estruturas de colaboração e interação ent
 pip install -r requirements.txt
 
 # 2. Executar análise completa
+python -m graphs_lib analyze --interactions interacoes.csv
 python -m graphs_lib analyze --interactions collected-data/interacoes_comentarios.csv
 python -m graphs_lib analyze --interactions collected-data/interacoes_fechamentos.csv
 python -m graphs_lib analyze --interactions collected-data/interacoes_reviews_merges.csv
