@@ -12,6 +12,7 @@ Sistema desenvolvido para analisar estruturas de colaboração e interação ent
 
 ### Como executar o Projeto
 
+
 ````bash
 # 1. Instalar dependências
 pip install -r requirements.txt
